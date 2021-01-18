@@ -47,7 +47,7 @@ func _input(event: InputEvent) -> void:
 
 
 func _ui_resize(ui_scale:float):
-	#ui_scale is here just to comply with the Draggable interface, it isn't actually used.
+	#"ui_scale" is here just to comply with the Resizable interface, it isn't actually used.
 	if bar_position < bar_safe_margin: bar_position = bar_safe_margin
 	if bar_position > 1.0 - bar_safe_margin: bar_position = 1.0 - bar_safe_margin
 

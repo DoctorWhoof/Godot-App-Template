@@ -13,10 +13,12 @@ var config:ConfigFile
 var font:DynamicFont
 
 func _ready():
+	#Ensures theme.font,and stores its initial size
 	font = theme.default_font
 	assert(font, "MainControl Error: Font or Theme not found.\n")
 	default_font_size = font.size
 
+	#Load and process config file
 	config = ConfigFile.new()
 	var err = config.load("user://config.cfg")
 	if err == OK:
@@ -26,6 +28,7 @@ func _ready():
 		config.set_value("ui", "scale", ui_scale)
 	ui_scale = config.get_value("ui", "scale", 1.0)
 
+	#Wait a frame just be 100% sure everything is ready, then apply ui scale
 	yield(get_tree(), "idle_frame")
 	resize_ui()
 
@@ -48,11 +51,11 @@ func resize_ui():
 	font.size = default_font_size * ui_scale
 	print("UI Size:", ui_scale)
 	for node in get_tree().get_nodes_in_group("Resizable"):
-#		#I'm not checking if "_ui_resize" method exists because I want the error!
+		#I'm not checking if "_ui_resize" method exists because I want the error!
 		node._ui_resize(ui_scale)
 
 
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
 		config.save("user://config.cfg")
-		print("Quit: Auto saving session")
+		print("Quit: Auto saving session state")
