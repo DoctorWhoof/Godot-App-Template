@@ -17,22 +17,22 @@ _global_script_classes=[ {
 "base": "LineEdit",
 "class": "LineEditExt",
 "language": "GDScript",
-"path": "res://scripts/ui/Fix_LineEdit.gd"
+"path": "res://scripts/extended/Ext_LineEdit.gd"
 }, {
 "base": "MenuButton",
 "class": "MenuButtonExt",
 "language": "GDScript",
-"path": "res://scripts/ui/Fix_MenuButton.gd"
+"path": "res://scripts/extended/Ext_MenuButton.gd"
 }, {
 "base": "OptionButton",
 "class": "OptionButtonExt",
 "language": "GDScript",
-"path": "res://scripts/ui/Fix_OptionButton.gd"
+"path": "res://scripts/extended/Ext_OptionButton.gd"
 }, {
 "base": "SpinBox",
 "class": "SpinBoxExt",
 "language": "GDScript",
-"path": "res://scripts/ui/Fix_SpinBox.gd"
+"path": "res://scripts/extended/Ext_SpinBox.gd"
 } ]
 _global_script_class_icons={
 "HDragContainer": "",
