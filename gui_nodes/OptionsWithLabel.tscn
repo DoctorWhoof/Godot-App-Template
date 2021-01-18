@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/ui/OptionsWithLabel.gd" type="Script" id=2]
+
+[node name="OptionsWithLabel" type="HBoxContainer"]
+anchor_right = 1.0
+size_flags_horizontal = 3
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+label_text = ""
+
+[node name="Spacer 1" type="Control" parent="."]
+margin_right = 4.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 4, 0 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 12.0
+margin_top = 6.0
+margin_right = 12.0
+margin_bottom = 31.0
+
+[node name="Spacer 2" type="Control" parent="."]
+margin_left = 20.0
+margin_right = 1449.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+
+[node name="OptionButton" type="OptionButton" parent="."]
+margin_left = 1457.0
+margin_right = 1600.0
+margin_bottom = 37.0
+text = "Options"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

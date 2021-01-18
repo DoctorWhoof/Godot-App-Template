@@ -1,0 +1,96 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "HBoxContainer",
+"class": "HDragContainer",
+"language": "GDScript",
+"path": "res://scripts/ui/HDragContainer.gd"
+}, {
+"base": "LineEdit",
+"class": "LineEditExt",
+"language": "GDScript",
+"path": "res://scripts/ui/Fix_LineEdit.gd"
+}, {
+"base": "MenuButton",
+"class": "MenuButtonExt",
+"language": "GDScript",
+"path": "res://scripts/ui/Fix_MenuButton.gd"
+}, {
+"base": "OptionButton",
+"class": "OptionButtonExt",
+"language": "GDScript",
+"path": "res://scripts/ui/Fix_OptionButton.gd"
+}, {
+"base": "SpinBox",
+"class": "SpinBoxExt",
+"language": "GDScript",
+"path": "res://scripts/ui/Fix_SpinBox.gd"
+} ]
+_global_script_class_icons={
+"HDragContainer": "",
+"LineEditExt": "",
+"MenuButtonExt": "",
+"OptionButtonExt": "",
+"SpinBoxExt": ""
+}
+
+[application]
+
+config/name="Template App"
+run/main_scene="res://main.tscn"
+run/low_processor_mode=true
+run/low_processor_mode_sleep_usec=10000
+config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1280
+window/size/height=960
+window/dpi/allow_hidpi=true
+window/energy_saving/keep_screen_on=false
+
+[gui]
+
+theme/use_hidpi=true
+
+[input]
+
+ui_scale_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":true,"command":true,"pressed":false,"scancode":61,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":true,"meta":false,"command":false,"pressed":false,"scancode":61,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":true,"control":true,"meta":false,"command":false,"pressed":false,"scancode":61,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_scale_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":true,"command":true,"pressed":false,"scancode":45,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":true,"meta":false,"command":false,"pressed":false,"scancode":45,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":true,"control":true,"meta":false,"command":false,"pressed":false,"scancode":45,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_scale_reset={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":true,"command":true,"pressed":false,"scancode":48,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":true,"meta":false,"command":false,"pressed":false,"scancode":48,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":true,"control":true,"meta":false,"command":false,"pressed":false,"scancode":48,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[physics]
+
+common/enable_object_picking=false
+
+[rendering]
+
+quality/intended_usage/framebuffer_allocation=0
+quality/intended_usage/framebuffer_allocation.mobile=0
+quality/2d/use_pixel_snap=true

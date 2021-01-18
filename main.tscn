@@ -1,0 +1,146 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/ui/Resizable.gd" type="Script" id=1]
+[ext_resource path="res://scripts/ui/MainControl.gd" type="Script" id=2]
+[ext_resource path="res://gui/Theme_Default.tres" type="Theme" id=3]
+[ext_resource path="res://scripts/ui/HDragContainer.gd" type="Script" id=4]
+[ext_resource path="res://scripts/ui/Fix_MenuButton.gd" type="Script" id=5]
+[ext_resource path="res://gui_nodes/OptionsWithLabel.tscn" type="PackedScene" id=6]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.13, 0.13, 0.13, 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuPanel" type="Panel" parent="VBox"]
+margin_right = 1280.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+resize_width = false
+
+[node name="MenuContainer" type="HBoxContainer" parent="VBox/MenuPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer" type="Control" parent="VBox/MenuPanel/MenuContainer"]
+margin_bottom = 32.0
+
+[node name="MenuFile" type="MenuButton" parent="VBox/MenuPanel/MenuContainer"]
+margin_left = 8.0
+margin_right = 51.0
+margin_bottom = 32.0
+text = "File"
+script = ExtResource( 5 )
+list = [ "Open", "Save", "Save As", "Quit" ]
+
+[node name="MenuHelp" type="MenuButton" parent="VBox/MenuPanel/MenuContainer"]
+margin_left = 59.0
+margin_right = 109.0
+margin_bottom = 32.0
+focus_mode = 2
+text = "Help"
+script = ExtResource( 5 )
+list = [ "About", "Quick Help" ]
+
+[node name="HDrag" type="HBoxContainer" parent="VBox"]
+margin_top = 32.0
+margin_right = 1280.0
+margin_bottom = 960.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+drag_bar_node = NodePath("DragBar")
+panel_left_node = NodePath("PanelA")
+panel_right_node = NodePath("PanelB")
+
+[node name="PanelA" type="Panel" parent="VBox/HDrag"]
+margin_right = 411.0
+margin_bottom = 928.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBox/HDrag/PanelA"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsWithLabel" parent="VBox/HDrag/PanelA/VBoxContainer" instance=ExtResource( 6 )]
+anchor_right = 0.0
+margin_right = 411.0
+margin_bottom = 36.0
+label_text = "Test"
+list = [ "Test 1", "Test 2" ]
+
+[node name="OptionsWithLabel2" parent="VBox/HDrag/PanelA/VBoxContainer" instance=ExtResource( 6 )]
+anchor_right = 0.0
+margin_top = 44.0
+margin_right = 411.0
+margin_bottom = 80.0
+label_text = "Test 2"
+list = [ null, null, null ]
+
+[node name="OptionsWithLabel3" parent="VBox/HDrag/PanelA/VBoxContainer" instance=ExtResource( 6 )]
+anchor_right = 0.0
+margin_top = 88.0
+margin_right = 411.0
+margin_bottom = 124.0
+label_text = "Options Label"
+list = [ "Option A", "Option B", "Option C", "Option D" ]
+
+[node name="OptionsWithLabel4" parent="VBox/HDrag/PanelA/VBoxContainer" instance=ExtResource( 6 )]
+anchor_right = 0.0
+margin_top = 132.0
+margin_right = 411.0
+margin_bottom = 168.0
+label_text = "Options Label"
+
+[node name="DragBar" type="Panel" parent="VBox/HDrag"]
+margin_left = 411.0
+margin_right = 423.0
+margin_bottom = 928.0
+rect_min_size = Vector2( 12, 0 )
+mouse_default_cursor_shape = 10
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+resize_width = false
+resize_height = false
+
+[node name="PanelB" type="Panel" parent="VBox/HDrag"]
+margin_left = 423.0
+margin_right = 1280.0
+margin_bottom = 928.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
