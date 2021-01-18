@@ -22,7 +22,7 @@ func _ready():
 func _on_popup_index_pressed(id:int):
 	var item = str( list[id] )
 	emit_signal("item_pressed", item)
-	print(item)
+	print(name,": ",item)
 
 
 func _ui_resize(ui_scale:float):

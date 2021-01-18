@@ -22,4 +22,4 @@ func set_label(text:String):
 
 func _on_item_selected(id:int):
 	emit_signal("option_selected", str(list[id]) )
-	print("Option selected:",list[id])
+	print(name, ": ", list[id])
