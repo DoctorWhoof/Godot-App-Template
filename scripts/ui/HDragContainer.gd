@@ -15,7 +15,6 @@ var bar_width := 0.0
 var bar_position := 0.5
 var is_dragging := false
 
-
 func _ready() -> void:
 	panel_left = get_node(panel_left_node)
 	panel_right = get_node(panel_right_node)
@@ -51,11 +50,12 @@ func _ui_resize(ui_scale:float):
 	if bar_position < bar_safe_margin: bar_position = bar_safe_margin
 	if bar_position > 1.0 - bar_safe_margin: bar_position = 1.0 - bar_safe_margin
 	reset_stretches()
+	update()
 
 
 func reset_stretches():
 	bar_width = drag_bar.rect_size.x
-	var bar_stretch:float = bar_width / rect_size.x
+	var bar_stretch := bar_width / rect_size.x
 
 	drag_bar.size_flags_stretch_ratio = bar_stretch
 	panel_left.size_flags_stretch_ratio = bar_position - (bar_stretch/2.0)
@@ -63,22 +63,22 @@ func reset_stretches():
 
 
 func _on_draw():
-	#Fix if left panel can't shrink
+	#Fix bar_position if left panel can't shrink
 	var actual_size:= (panel_left.rect_size.x+ (bar_width/2))/rect_size.x
 	bar_position = actual_size
 
 
-#func _draw() -> void:
-#	#Debug draw. Displays clickable area as lines. Make sure it's drawn in front.
-#	#Call "update()" to draw
-#	var x:float = bar_position * rect_size.x
-#	draw_line(
-#		Vector2(x - bar_width, 0),
-#		Vector2(x - bar_width, rect_size.y),
-#		Color.white
-#	)
-#	draw_line(
-#		Vector2(x + bar_width, 0),
-#		Vector2(x + bar_width, rect_size.y),
-#		Color.white
-#	)
+func _draw() -> void:
+	#Debug draw. Displays clickable area as lines. Make sure it's drawn in front.
+	#Call "update()" to draw
+	var x:float = bar_position * rect_size.x
+	draw_line(
+		Vector2(x - bar_width, 0),
+		Vector2(x - bar_width, rect_size.y),
+		Color.white
+	)
+	draw_line(
+		Vector2(x + bar_width, 0),
+		Vector2(x + bar_width, rect_size.y),
+		Color.white
+	)

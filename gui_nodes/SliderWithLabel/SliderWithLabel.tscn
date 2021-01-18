@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://gui_nodes/SliderWithLabel/SliderWithLabel.gd" type="Script" id=1]
+
+[node name="SliderWithLabel" type="HBoxContainer"]
+anchor_right = 1.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+label_text = "Options Label"
+
+[node name="Spacer1" type="Control" parent="."]
+margin_bottom = 64.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 8.0
+margin_right = 134.0
+margin_bottom = 64.0
+size_flags_vertical = 5
+text = "Slider Label"
+valign = 1
+
+[node name="Spacer2" type="Control" parent="."]
+margin_left = 142.0
+margin_right = 142.0
+margin_bottom = 64.0
+
+[node name="Slider" type="HSlider" parent="."]
+margin_left = 150.0
+margin_right = 1272.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+
+[node name="Spacer3" type="Control" parent="."]
+margin_left = 1280.0
+margin_right = 1280.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

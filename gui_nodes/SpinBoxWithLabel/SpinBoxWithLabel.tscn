@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://gui_nodes/SliderWithLabel/SliderWithLabel.gd" type="Script" id=1]
+[ext_resource path="res://scripts/extended/Ext_SpinBox.gd" type="Script" id=2]
+
+[node name="SpinBoxWithLabel" type="HBoxContainer"]
+anchor_right = 1.0
+margin_bottom = 45.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+label_text = "Options Label"
+
+[node name="Spacer1" type="Control" parent="."]
+margin_bottom = 56.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 15.0
+margin_right = 160.0
+margin_bottom = 40.0
+text = "SpinBox Label"
+
+[node name="Spacer2" type="Control" parent="."]
+margin_left = 168.0
+margin_right = 1068.0
+margin_bottom = 56.0
+size_flags_horizontal = 3
+
+[node name="Slider" type="SpinBox" parent="."]
+margin_left = 1076.0
+margin_right = 1272.0
+margin_bottom = 56.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer3" type="Control" parent="."]
+margin_left = 1280.0
+margin_right = 1280.0
+margin_bottom = 56.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://gui/Font_SemiBold.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scripts/ui/MainControl.gd" type="Script" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://gui_nodes/CheckboxWithLabel/CheckBoxWithLabel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://gui_nodes/CheckButtonWithLabel/CheckButtonWithLabel.tscn" type="PackedScene" id=8]
 [ext_resource path="res://gui/Font_Default.tres" type="DynamicFont" id=9]
+[ext_resource path="res://gui_nodes/SpinBoxWithLabel/SpinBoxWithLabel.tscn" type="PackedScene" id=10]
+[ext_resource path="res://gui_nodes/SliderWithLabel/SliderWithLabel.tscn" type="PackedScene" id=11]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.09, 0.09, 0.09, 1 )
@@ -115,20 +117,20 @@ margin_right = 252.0
 margin_bottom = 133.0
 label_text = "My CheckButton"
 
-[node name="HSlider" type="HSlider" parent="Main VBox/HDrag/LeftPanel"]
+[node name="SliderWithLabel" parent="Main VBox/HDrag/LeftPanel" instance=ExtResource( 11 )]
+anchor_right = 0.0
 margin_top = 138.0
 margin_right = 252.0
-margin_bottom = 158.0
+margin_bottom = 165.0
 
-[node name="SpinBox" type="SpinBox" parent="Main VBox/HDrag/LeftPanel"]
-margin_top = 163.0
+[node name="SpinBoxWithLabel" parent="Main VBox/HDrag/LeftPanel" instance=ExtResource( 10 )]
+anchor_right = 0.0
+margin_top = 170.0
 margin_right = 252.0
-margin_bottom = 192.5
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_bottom = 199.0
 
 [node name="DragBar" type="Panel" parent="Main VBox/HDrag"]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 252.0
 margin_right = 268.0
 margin_bottom = 930.0
