@@ -1,0 +1,7 @@
+App Template To Do:
+-------------------------------------------------------------------------------
+
+[ ] SpinBox with label
+[ ] Slider with label
+[ ] HDrag:
+    [ ] Fixed Scaling (Vs. the current proportional style). Preserves bar placement when resizing window

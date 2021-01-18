@@ -115,6 +115,19 @@ margin_right = 252.0
 margin_bottom = 133.0
 label_text = "My CheckButton"
 
+[node name="HSlider" type="HSlider" parent="Main VBox/HDrag/LeftPanel"]
+margin_top = 138.0
+margin_right = 252.0
+margin_bottom = 158.0
+
+[node name="SpinBox" type="SpinBox" parent="Main VBox/HDrag/LeftPanel"]
+margin_top = 163.0
+margin_right = 252.0
+margin_bottom = 192.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="DragBar" type="Panel" parent="Main VBox/HDrag"]
 margin_left = 252.0
 margin_right = 268.0
