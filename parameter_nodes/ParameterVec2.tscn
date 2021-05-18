@@ -81,6 +81,8 @@ clip_text = true
 align = 0
 expand_icon = true
 script = ExtResource( 2 )
+resize_height = false
+size_multiplier = 0.8
 
 [node name="Spacer2" type="Control" parent="."]
 margin_left = 1280.0

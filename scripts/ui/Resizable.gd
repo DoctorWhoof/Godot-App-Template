@@ -2,12 +2,14 @@ extends Control
 
 export var resize_width := true
 export var resize_height := true
+export var size_multiplier := 1.0
 
 var original_size:Vector2
 
 func _ready():
 	add_to_group("Resizable")
-	original_size = rect_size
+	original_size = rect_size * size_multiplier
+
 
 func _ui_resize(ui_scale:float):
 	if resize_width:

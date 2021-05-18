@@ -4,6 +4,7 @@ signal value_committed(new_value)
 signal value_changed(new_value)		#necessary for standard behavior between multiple controls
 signal value_is_changing(new_value)	#necessary for standard behavior between multiple controls
 
+
 var silent:= false
 var previous_value = null			#necessary for standard behavior between multiple controls
 

@@ -1,6 +1,6 @@
 extends ParameterControl
 
-export var initial_value:= "Text"
+export var initial_value:String
 
 func _ready() -> void:
 	control = $Text

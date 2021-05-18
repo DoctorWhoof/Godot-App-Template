@@ -55,6 +55,7 @@ flat = true
 expand_icon = true
 script = ExtResource( 1 )
 resize_height = false
+size_multiplier = 0.8
 
 [node name="Spacer2" type="Control" parent="."]
 margin_left = 1280.0
