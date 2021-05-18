@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://parameter_nodes/parameter_scripts/ParameterBool.gd" type="Script" id=1]
+[ext_resource path="res://scripts/ui/Resizable.gd" type="Script" id=2]
+[ext_resource path="res://gui/textures/button_reset.png" type="Texture" id=3]
+[ext_resource path="res://parameter_nodes/extensions/Ext_CheckButton.gd" type="Script" id=4]
+
+[node name="ParameterCheckButton" type="HBoxContainer"]
+anchor_right = 1.0
+margin_bottom = 80.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer1" type="Control" parent="."]
+margin_bottom = 80.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 27.0
+margin_right = 209.0
+margin_bottom = 52.0
+text = "CheckButton Label"
+
+[node name="Spacer2" type="Control" parent="."]
+margin_left = 217.0
+margin_right = 1068.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+
+[node name="Button" type="CheckButton" parent="."]
+margin_left = 1076.0
+margin_right = 1228.0
+margin_bottom = 80.0
+script = ExtResource( 4 )
+
+[node name="ButtonReset" type="Button" parent="."]
+margin_left = 1236.0
+margin_right = 1272.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 36, 0 )
+disabled = true
+icon = ExtResource( 3 )
+flat = true
+expand_icon = true
+script = ExtResource( 2 )
+
+[node name="Spacer3" type="Control" parent="."]
+margin_left = 1280.0
+margin_right = 1280.0
+margin_bottom = 80.0
+
+[connection signal="value_committed" from="Button" to="." method="_on_Button_value_committed"]
+[connection signal="pressed" from="ButtonReset" to="." method="_on_ButtonReset_pressed"]

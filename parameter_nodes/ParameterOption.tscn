@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://gui/textures/button_reset.png" type="Texture" id=1]
+[ext_resource path="res://parameter_nodes/parameter_scripts/ParameterOption.gd" type="Script" id=2]
+[ext_resource path="res://parameter_nodes/extensions/Ext_OptionButton.gd" type="Script" id=3]
+[ext_resource path="res://scripts/ui/Resizable.gd" type="Script" id=4]
+
+[node name="ParameterOptions" type="HBoxContainer"]
+anchor_right = 1.0
+size_flags_horizontal = 3
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer 1" type="Control" parent="."]
+margin_bottom = 37.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 157.0
+margin_bottom = 31.0
+text = "Options Label"
+
+[node name="Spacer 2" type="Control" parent="."]
+margin_left = 165.0
+margin_right = 1077.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+
+[node name="OptionButton" type="OptionButton" parent="."]
+margin_left = 1085.0
+margin_right = 1228.0
+margin_bottom = 37.0
+text = "Options"
+align = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonReset" type="Button" parent="."]
+margin_left = 1236.0
+margin_right = 1272.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 36, 0 )
+disabled = true
+icon = ExtResource( 1 )
+flat = true
+expand_icon = true
+script = ExtResource( 4 )
+resize_height = false
+
+[node name="Spacer 3" type="Control" parent="."]
+margin_left = 1280.0
+margin_right = 1280.0
+margin_bottom = 37.0
+
+[connection signal="value_committed" from="OptionButton" to="." method="_on_OptionButton_value_committed"]
+[connection signal="pressed" from="ButtonReset" to="." method="_on_ButtonReset_pressed"]

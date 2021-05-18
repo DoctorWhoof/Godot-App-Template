@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://parameter_nodes/parameter_scripts/ParameterVec2.gd" type="Script" id=1]
+[ext_resource path="res://scripts/ui/Resizable.gd" type="Script" id=2]
+[ext_resource path="res://gui/textures/button_reset.png" type="Texture" id=3]
+[ext_resource path="res://parameter_nodes/extensions/Ext_SpinBox.gd" type="Script" id=4]
+
+[node name="ParameterVec2" type="HBoxContainer"]
+anchor_left = -0.000782852
+anchor_top = -0.000978613
+anchor_right = 0.999217
+anchor_bottom = -0.000978613
+margin_left = 0.252563
+margin_top = 0.252625
+margin_right = 0.252808
+margin_bottom = 45.2526
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+step = 1e-06
+
+[node name="Spacer1" type="Control" parent="."]
+margin_bottom = 45.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 10.0
+margin_right = 768.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+text = "Vec2 Label"
+
+[node name="LabelX" type="Label" parent="."]
+margin_left = 776.0
+margin_top = 10.0
+margin_right = 794.0
+margin_bottom = 35.0
+text = "x:"
+
+[node name="SliderX" type="SpinBox" parent="."]
+margin_left = 802.0
+margin_right = 998.0
+margin_bottom = 45.0
+rect_clip_content = true
+mouse_filter = 1
+step = 1e-06
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelY" type="Label" parent="."]
+margin_left = 1006.0
+margin_top = 10.0
+margin_right = 1024.0
+margin_bottom = 35.0
+text = "y:"
+
+[node name="SliderY" type="SpinBox" parent="."]
+margin_left = 1032.0
+margin_right = 1228.0
+margin_bottom = 45.0
+rect_clip_content = true
+mouse_filter = 1
+step = 1e-06
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonReset" type="Button" parent="."]
+margin_left = 1236.0
+margin_right = 1272.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 36, 0 )
+disabled = true
+icon = ExtResource( 3 )
+flat = true
+clip_text = true
+align = 0
+expand_icon = true
+script = ExtResource( 2 )
+
+[node name="Spacer2" type="Control" parent="."]
+margin_left = 1280.0
+margin_right = 1280.0
+margin_bottom = 45.0
+
+[connection signal="value_changed" from="SliderX" to="." method="_on_SliderX_value_changed"]
+[connection signal="value_committed" from="SliderX" to="." method="_on_SliderX_value_committed"]
+[connection signal="value_changed" from="SliderY" to="." method="_on_SliderY_value_changed"]
+[connection signal="value_committed" from="SliderY" to="." method="_on_SliderY_value_committed"]
+[connection signal="pressed" from="ButtonReset" to="." method="_on_ButtonReset_pressed"]

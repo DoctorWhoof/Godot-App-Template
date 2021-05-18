@@ -1,16 +1,18 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://gui/Font_SemiBold.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scripts/ui/MainControl.gd" type="Script" id=2]
 [ext_resource path="res://gui/Theme_Editor.tres" type="Theme" id=3]
 [ext_resource path="res://scripts/ui/HDragContainer.gd" type="Script" id=4]
-[ext_resource path="res://scripts/extended/Ext_MenuButton.gd" type="Script" id=5]
-[ext_resource path="res://gui_nodes/OptionsWithLabel/OptionsWithLabel.tscn" type="PackedScene" id=6]
-[ext_resource path="res://gui_nodes/CheckboxWithLabel/CheckBoxWithLabel.tscn" type="PackedScene" id=7]
-[ext_resource path="res://gui_nodes/CheckButtonWithLabel/CheckButtonWithLabel.tscn" type="PackedScene" id=8]
+[ext_resource path="res://parameter_nodes/extensions/Ext_MenuButton.gd" type="Script" id=5]
+[ext_resource path="res://parameter_nodes/ParameterCheckBox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://parameter_nodes/ParameterSpinBox.tscn" type="PackedScene" id=7]
+[ext_resource path="res://parameter_nodes/ParameterCheckButton.tscn" type="PackedScene" id=8]
 [ext_resource path="res://gui/Font_Default.tres" type="DynamicFont" id=9]
-[ext_resource path="res://gui_nodes/SpinBoxWithLabel/SpinBoxWithLabel.tscn" type="PackedScene" id=10]
-[ext_resource path="res://gui_nodes/SliderWithLabel/SliderWithLabel.tscn" type="PackedScene" id=11]
+[ext_resource path="res://parameter_nodes/ParameterOption.tscn" type="PackedScene" id=10]
+[ext_resource path="res://parameter_nodes/ParameterSlider.tscn" type="PackedScene" id=11]
+[ext_resource path="res://parameter_nodes/ParameterText.tscn" type="PackedScene" id=12]
+[ext_resource path="res://parameter_nodes/ParameterVec2.tscn" type="PackedScene" id=13]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.09, 0.09, 0.09, 1 )
@@ -67,10 +69,9 @@ list = [ "About", "Quick Help" ]
 [node name="HDrag" type="HBoxContainer" parent="Main VBox"]
 margin_top = 30.0
 margin_right = 1280.0
-margin_bottom = 960.0
+margin_bottom = 640.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 0
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -80,8 +81,8 @@ panel_left_node = NodePath("LeftPanel")
 panel_right_node = NodePath("RightPanel")
 
 [node name="LeftPanel" type="VBoxContainer" parent="Main VBox/HDrag"]
-margin_right = 252.0
-margin_bottom = 930.0
+margin_right = 397.0
+margin_bottom = 610.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.25
@@ -89,60 +90,94 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Main VBox/HDrag/LeftPanel"]
-margin_right = 252.0
+[node name="Label_TestControls" type="Label" parent="Main VBox/HDrag/LeftPanel"]
+margin_right = 397.0
 margin_bottom = 27.0
 text = "  Test Controls"
 align = 1
 
-[node name="OptionsWithLabel" parent="Main VBox/HDrag/LeftPanel" instance=ExtResource( 6 )]
+[node name="ParameterCheckBox" parent="Main VBox/HDrag/LeftPanel" instance=ExtResource( 6 )]
 anchor_right = 0.0
 margin_top = 32.0
-margin_right = 252.0
-margin_bottom = 61.0
-label_text = "Test"
-list = [ "Test 1", "Test 2" ]
+margin_right = 397.0
+margin_bottom = 62.0
+param_name = "Checkbox"
+auto_watch = true
+visible_reset_button = false
 
-[node name="CheckBoxWithLabel" parent="Main VBox/HDrag/LeftPanel" instance=ExtResource( 7 )]
+[node name="ParameterCheckButton" parent="Main VBox/HDrag/LeftPanel" instance=ExtResource( 8 )]
 anchor_right = 0.0
-margin_top = 66.0
-margin_right = 252.0
-margin_bottom = 96.0
-label_text = "My Checkbox"
+margin_top = 67.0
+margin_right = 397.0
+margin_bottom = 99.0
+param_name = "CheckButton"
+auto_watch = true
+visible_reset_button = false
 
-[node name="CheckButtonWithLabel" parent="Main VBox/HDrag/LeftPanel" instance=ExtResource( 8 )]
+[node name="ParameterOptions" parent="Main VBox/HDrag/LeftPanel" instance=ExtResource( 10 )]
 anchor_right = 0.0
-margin_top = 101.0
-margin_right = 252.0
+margin_top = 104.0
+margin_right = 397.0
 margin_bottom = 133.0
-label_text = "My CheckButton"
+param_name = "Options"
+auto_watch = true
+visible_reset_button = false
+list = [ "Test", "ABC", "WYZ" ]
 
-[node name="SliderWithLabel" parent="Main VBox/HDrag/LeftPanel" instance=ExtResource( 11 )]
+[node name="ParameterSlider" parent="Main VBox/HDrag/LeftPanel" instance=ExtResource( 11 )]
+anchor_left = 0.0
 anchor_right = 0.0
 margin_top = 138.0
-margin_right = 252.0
-margin_bottom = 165.0
+margin_right = 397.0
+margin_bottom = 167.0
+param_name = "Slider"
+auto_watch = true
+visible_reset_button = false
 
-[node name="SpinBoxWithLabel" parent="Main VBox/HDrag/LeftPanel" instance=ExtResource( 10 )]
+[node name="ParameterSpinBox" parent="Main VBox/HDrag/LeftPanel" instance=ExtResource( 7 )]
 anchor_right = 0.0
-margin_top = 170.0
-margin_right = 252.0
-margin_bottom = 199.0
+margin_top = 172.0
+margin_right = 397.0
+margin_bottom = 201.0
+param_name = "Spin"
+auto_watch = true
+visible_reset_button = false
+
+[node name="ParameterText" parent="Main VBox/HDrag/LeftPanel" instance=ExtResource( 12 )]
+anchor_right = 0.0
+margin_top = 206.0
+margin_right = 397.0
+margin_bottom = 235.0
+param_name = "Text"
+auto_watch = true
+visible_reset_button = false
+
+[node name="ParameterVec2" parent="Main VBox/HDrag/LeftPanel" instance=ExtResource( 13 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 240.0
+margin_right = 397.0
+margin_bottom = 269.0
+param_name = "Vec2"
+auto_watch = true
+visible_reset_button = false
 
 [node name="DragBar" type="Panel" parent="Main VBox/HDrag"]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 252.0
-margin_right = 268.0
-margin_bottom = 930.0
+margin_left = 402.0
+margin_right = 418.0
+margin_bottom = 610.0
 rect_min_size = Vector2( 16, 0 )
 mouse_default_cursor_shape = 10
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
 [node name="RightPanel" type="Panel" parent="Main VBox/HDrag"]
-margin_left = 268.0
+margin_left = 423.0
 margin_right = 1280.0
-margin_bottom = 930.0
+margin_bottom = 610.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 1 )

@@ -2,10 +2,11 @@ extends OptionButton
 class_name OptionButtonExt
 
 #Use this signal to connect to other nodes! It sends the string insted of the ID number
-signal option_selected(option)
+signal value_committed(new_value)
 
 export var list := []
 
+var silent:= false
 var item_separation :int
 var arrow_margin :int
 
@@ -23,13 +24,14 @@ func _ready():
 	var margin = get("custom_constants/arrow_margin")
 	if margin != null: arrow_margin = margin
 
-	selected = 0
+	if list.size():
+		selected = 0
 
 
 func _on_item_selected(id:int):
-	var item = str( list[id] )
-	emit_signal("option_selected", item)
-	print(item)
+	if not silent:
+#		var item = str( list[id] )
+		emit_signal("value_committed", id)
 
 
 func _ui_resize(ui_scale:float):

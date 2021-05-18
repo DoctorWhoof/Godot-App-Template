@@ -68,17 +68,17 @@ func _on_draw():
 	bar_position = actual_size
 
 
-func _draw() -> void:
-	#Debug draw. Displays clickable area as lines. Make sure it's drawn in front.
-	#Call "update()" to draw
-	var x:float = bar_position * rect_size.x
-	draw_line(
-		Vector2(x - bar_width, 0),
-		Vector2(x - bar_width, rect_size.y),
-		Color.white
-	)
-	draw_line(
-		Vector2(x + bar_width, 0),
-		Vector2(x + bar_width, rect_size.y),
-		Color.white
-	)
+#func _draw() -> void:
+#	#Debug draw. Displays clickable area as lines. Make sure it's drawn in front.
+#	#Call "update()" to draw
+#	var x:float = bar_position * rect_size.x
+#	draw_line(
+#		Vector2(x - bar_width, 0),
+#		Vector2(x - bar_width, rect_size.y),
+#		Color.white
+#	)
+#	draw_line(
+#		Vector2(x + bar_width, 0),
+#		Vector2(x + bar_width, rect_size.y),
+#		Color.white
+#	)
